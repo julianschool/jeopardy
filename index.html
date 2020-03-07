@@ -19,8 +19,7 @@
         frameRate(60);
 
 //Thank you so much Larry Serflaten for helping me squash all of the bugs!!
-//var jeoTheme = new Audio('');
-//audio.play();
+var jeoTheme = new Audio('Jeopardy Theme.mp3');
 	   
 var guests = [];
 var jeoCards = [];
@@ -139,6 +138,7 @@ timerClicked2 = 0;
 timer2 = 0;
 this.clicked = true;
 this.scene = [this.column][this.row]; 
+jeoTheme.play();
 }
 
 if(this.clicked === true){

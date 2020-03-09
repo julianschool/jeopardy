@@ -18,6 +18,10 @@ audio{
   <source src="intro.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<audio id="jeoTheme">
+  <source src="Jeopardy Theme.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
  </body>
 
  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
@@ -29,7 +33,7 @@ audio{
         frameRate(60);
 
 //Thank you so much Larry Serflaten for helping me squash all of the bugs!!
-var jeoTheme = new Audio('Jeopardy Theme.mp3');
+var jeoTheme = document.getElementById("jeoTheme");   
 var intro = document.getElementById("intro");   
 	     
 var guests = [];

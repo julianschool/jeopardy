@@ -46,6 +46,7 @@ var timer2 = 0;
 var timerClicked2 = 0;
 
 var jeopardy = function(row, column){
+
 this.row = row;
 this.column = column;
 this.points = this.row*200;
@@ -146,6 +147,7 @@ this.pointsValue = 0;
 this.textC = color(255, 204, 0);
 this.textC2 = color(0);
 this.textW = width/2;
+this.textW2 = width/2;
 };
 jeopardy.prototype.click = function(){
 if(mouseX >= (this.column/6)*width && mouseX <= (this.column/6)*width+width/6 && mouseY >= (this.row/7)*height && mouseY <= (this.row/7)*height+height/7 && this.scene === "home" && timer2 >= 1){
@@ -167,9 +169,11 @@ background(6, 12, 233);
 this.pointsValue = this.points;
 
 textAlign(CENTER, CENTER);
+textFont(createFont("impact"), 50);
 fill(255, 255, 255);
-textFont(createFont("impact"), 40);
-text(30-jeoTheme.currentTime, width/2, height-height/3);
+text(Math.round(30-jeoTheme.currentTime), this.answerW2+4, height/2+4);
+fill(255, 255, 255);
+text(Math.round(30-jeoTheme.currentTime), this.answerW2, height/2);
 textFont(createFont("times new roman"), 60);
 fill(0, 0, 0);
 text((this.question[this.column][this.row-1]).toUpperCase(), width/2+4, height/4);
@@ -190,15 +194,18 @@ if(timerClicked === 0){
 if(timerClicked >= 1){
     timer += 0.016;
 }
-if(jeoTheme.currentTime >= 31){
+if(jeoTheme.currentTime >= 30){
     this.answerHide = false;
-  jeoTheme.currentTime = 31;
+    jeoTheme.currentTime = 30;
+    jeoTheme.pause();
 }
 if(this.answerHide === true){
     this.answerW = width+width;
+    this.answerW2 = width/2;
 }
 if(this.answerHide === false){
     this.answerW = width/2;
+    this.answerW2 = width+width;
     timerClicked2 = 0;
     timer2 = 0;
 }
@@ -211,6 +218,7 @@ if(this.scene !== "home" && this.answerHide === false && mouseX >= 0 && mouseX <
     this.pointsValue = 0;
     timerClicked = 0;
     timer = 0;
+    jeoTheme.currentTime = 0;
 }
 };
 jeopardy.prototype.display = function(){

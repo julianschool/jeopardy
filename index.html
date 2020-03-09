@@ -183,9 +183,9 @@ if(timerClicked === 0){
 if(timerClicked >= 1){
     timer += 0.016;
 }
-if(jeoTheme.onended){
+jeoTheme.onended = function(){
     this.answerHide = false;
-}
+};
 if(this.answerHide === true){
     this.answerW = width+width;
 }

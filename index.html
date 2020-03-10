@@ -152,6 +152,7 @@ this.textC = color(255, 204, 0);
 this.textC2 = color(0);
 this.textW = width/2;
 this.textW2 = width/2;
+this.ddx = -textWidth("DAILY DOUBLE!");
 };
 jeopardy.prototype.click = function(){
 if(mouseX >= (this.column/6)*width && mouseX <= (this.column/6)*width+width/6 && mouseY >= (this.row/7)*height && mouseY <= (this.row/7)*height+height/7 && this.scene === "home" && timer2 >= 1){
@@ -170,9 +171,21 @@ this.textC2 = color(6,12,233);
 jeopardy.prototype.sceneChange = function(){
 if(this.scene === [this.column][this.row]){
 background(6, 12, 233);
-this.pointsValue = this.points;
-
+	
 textAlign(CENTER, CENTER);
+if(this.column === 1 && this.row === 5){
+this.ddx += 0.7;
+fill(0, 0, 0);
+textFont(createFont("impact"), 130);
+text("DAILY DOUBLE!", this.ddx+10, height-height/3);
+fill(255, 255, 255);
+text("DAILY DOUBLE!", this.ddx, height-height/3);
+    this.pointsValue = this.points*2;
+} else {
+    stroke(0, 0, 0);
+    this.pointsValue = this.points;
+}
+	
 textFont(createFont("impact"), 60);
 fill(0, 0, 0);
 text(Math.round(32-jeoTheme.currentTime), this.answerW2+4, height/2);

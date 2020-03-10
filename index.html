@@ -169,7 +169,7 @@ this.pointsValue = this.points;
 textAlign(CENTER, CENTER);
 textFont(createFont("impact"), 60);
 fill(0, 0, 0);
-text(Math.round(30-jeoTheme.currentTime), this.answerW2+4, height/2);
+text(Math.round(31-jeoTheme.currentTime), this.answerW2+4, height/2);
 fill(255, 255, 255);
 text(Math.round(30-jeoTheme.currentTime), this.answerW2, height/2);
 textFont(createFont("times new roman"), 60);
@@ -192,9 +192,9 @@ if(timerClicked === 0){
 if(timerClicked >= 1){
     timer += 0.016;
 }
-if(jeoTheme.currentTime >= 30){
+if(jeoTheme.currentTime >= 31){
     this.answerHide = false;
-    jeoTheme.currentTime = 30;
+    jeoTheme.currentTime = 31;
     jeoTheme.pause();
 }
 if(this.answerHide === true){

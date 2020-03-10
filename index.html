@@ -22,11 +22,15 @@ text-align: center;
     </p>
 <audio id="intro">
   <source src="intro.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+  Your browser does not support audio
 </audio>
 <audio id="jeoTheme">
   <source src="Jeopardy Theme.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+  Your browser does not support audio
+</audio>
+<audio id="dailyD">
+  <source src="Daily Double.mp3" type="audio/mpeg">
+  Your browser does not support audio
 </audio>
  </body>
 
@@ -39,8 +43,10 @@ text-align: center;
         frameRate(60);
 
 //Thank you so much Larry Serflaten for helping me squash all of the bugs!!
+	     
 var jeoTheme = document.getElementById("jeoTheme");   
 var intro = document.getElementById("intro");   
+var dailyD = document.getElementById("dailyD");   
 	     
 var guests = [];
 var jeoCards = [];
@@ -181,6 +187,11 @@ text("DAILY DOUBLE!", this.ddx+10, height-height/3);
 fill(255, 255, 255);
 text("DAILY DOUBLE!", this.ddx, height-height/3);
     this.pointsValue = this.points*2;
+if(this.ddx <= width){
+dailyD.play();
+} else {
+dailyD.pause();
+}
 } else {
     stroke(0, 0, 0);
     this.pointsValue = this.points;
